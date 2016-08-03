@@ -19,4 +19,7 @@ print "**********************"
 print dicionario.get("produtos")
 print "**********************"
 print "Valor 0 da tupla: ",tupla[0]
+print dicionario.keys()[0]
+
+
     
