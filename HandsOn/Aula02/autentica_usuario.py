@@ -4,15 +4,20 @@ usuarios = []
 senhas = []
 
 def listar_opcoes():
+    
     print "1 - Cadastrar Usuario"
     print "2 - Acessar Sistema"
     print "3 - Sair do Sistema"
+    
 
 def switch(x):
-    dic_funcoes = {1: cadastrar_usuario,
-                   2: acessar_sistema,
-                   3: sair_sistema}
-    dic_funcoes[x]()
+    try:
+        dic_funcoes = {1: cadastrar_usuario,
+                       2: acessar_sistema,
+                       3: sair_sistema}
+        dic_funcoes[x]()    
+    except Exception as e:
+        print "Opcao %s eh invalida"%e
 
 def sair_sistema():
     print "Sair do Sistema"
@@ -52,6 +57,11 @@ def acessar_sistema():
 
 while True:
     listar_opcoes()
-    opcao = int(raw_input("Digite a opcao desejada: "))
-    switch(opcao)
+    try:
+        opcao = int(raw_input("Digite a opcao desejada: "))
+        switch(opcao)
+    except ValueError as e:
+        print "Nao eh permitido informar carcateres."
+        print "Erro detalhado: ", e
+    
     
