@@ -5,11 +5,14 @@ servidores = []
 senhas = []
 
 def switch(x):
-    dic_funcoes = {1: cadastrar_sysadmin,
-                   2: listar_sysadmin,
-                   3: remover_sysadmin,
-                   4: cadastrar_servidor}
-    dic_funcoes[x]()
+    try: 
+        dic_funcoes = {1: cadastrar_sysadmin,
+                       2: listar_sysadmin,
+                       3: remover_sysadmin,
+                       4: cadastrar_servidor}
+        dic_funcoes[x]()
+    except Exception as e:
+        print "Opcao %s eh Invalida"%e        
 
 def cadastrar_sysadmin(): # se nao houver parametro, assume "vazio"
     print "Cadastrando Sysadmin"
